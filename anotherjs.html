@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Object creation
+        let person = {
+            firstName: "benjamin",
+            lastName: "silas",
+            age: 20081877,
+            email: "benjaminsilas04@gmail.com"
+        };
+    
+        // Task 1: Print full name
+        console.log("Full Name: " + person.firstName + " " + person.lastName);
+    
+        // Task 2: Check if adult or minor
+        if (person.age >= 18) {
+            console.log("Status: Adult");
+        } else {
+            console.log("Status: Minor");
+        }
+    
+        // Task 3: Change email
+        person.email = "benjasilas@gmail.com";
+        console.log("Updated Email: " + person.email);
+    
+        // Task 4: Add address property
+        person.address = "kwata,anguldi";
+        console.log("Address: " + person.address);
+    
+    
+        // Object creation
+        let calculator = {
+            operand1: 10,
+            operand2: 5,
+    
+            add: function () {
+                return this.operand1 + this.operand2;
+            },
+    
+            subtract: function () {
+                return this.operand1 - this.operand2;
+            },
+    
+            multiply: function () {
+                return this.operand1 * this.operand2;
+            },
+    
+            divide: function () {
+                if (this.operand2 === 0) {
+                    return "Cannot divide by zero";
+                }
+                return this.operand1 / this.operand2;
+            }
+        };
+    
+        // Using calculator methods
+        console.log("Addition: " + calculator.add());
+        console.log("Subtraction: " + calculator.subtract());
+        console.log("Multiplication: " + calculator.multiply());
+        console.log("Division: " + calculator.divide());
+    
+        // Object creation
+        let bankAccount = {
+            balance: 1000,
+    
+            deposit: function (amount) {
+                if (amount > 0) {
+                    this.balance += amount;
+                    console.log("Deposited $" + amount + ". New balance: $" + this.balance);
+                } else {
+                    console.log("Invalid deposit amount");
+                }
+            },
+    
+            withdraw: function (amount) {
+                if (amount > 0 && amount <= this.balance) {
+                    this.balance -= amount;
+                    console.log("Withdrawn $" + amount + ". New balance: $" + this.balance);
+                } else {
+                    console.log("Invalid withdrawal amount or insufficient funds");
+                }
+            }
+        };
+    
+        // Using bankAccount methods
+        bankAccount.deposit(500);
+        bankAccount.withdraw(200);
+    
+        function printObject(obj) {
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    console.log(`${key}: ${obj[key]}`);
+                }
+            }
+        }
+    
+        let sampleObject = {
+            name: "banger",
+            age: 30,
+            city: "terminus"
+        };
+    
+        printObject(sampleObject);
+    
+        let bankaccount = {
+            balance: 1000,
+    
+            deposit: function (amount) {
+                if (amount > 0) {
+                    this.balance += amount;
+                    console.log("Deposited $" + amount + ". New balance: $" + this.balance);
+                } else {
+                    console.log("Invalid deposit amount");
+                }
+            },
+    
+            withdraw: function (amount) {
+                if (amount > 0 && amount <= this.balance) {
+                    this.balance -= amount;
+                    console.log("Withdrawn $" + amount + ". New balance: $" + this.balance);
+                } else {
+                    console.log("Invalid withdrawal amount or insufficient funds");
+                }
+            }
+        };
+    
+        // Example usage:
+        bankaccount.deposit(500);
+        bankaccount.withdraw(200);
+    
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+    
+        let personInstance = new Person("paul", 25);
+        console.log(personInstance);
+    
+        class PersonWithGreet {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+    
+            greet() {
+                return `Hello, my name is ${this.name}.`;
+            }
+        }
+    
+        let personInstanceWithGreet = new PersonWithGreet("paul", 25);
+        console.log(personInstanceWithGreet.greet());
+    
+        class Student extends PersonWithGreet {
+            constructor(name, age, studentId) {
+                super(name, age);
+                this.studentId = studentId;
+            }
+    
+            study() {
+                console.log(`${this.name} is studying.`);
+            }
+        }
+    
+        let studentInstance = new Student("banger", 20, "S12345");
+        studentInstance.study();
+    
+        class PersonWithAge {
+            constructor(name, age) {
+                this._name = name;
+                this._age = age;
+            }
+    
+            get age() {
+                return this._age;
+            }
+    
+            set age(newAge) {
+                if (newAge >= 0) {
+                    this._age = newAge;
+                } else {
+                    console.log("Age cannot be negative.");
+                }
+            }
+        }
+    
+        let personInstanceWithAge = new PersonWithAge("paul", 25);
+        console.log(personInstanceWithAge.age); // Get age
+        personInstanceWithAge.age = 30; // Set age
+        console.log(personInstanceWithAge.age);
+        personInstanceWithAge.age = -5;
+    </script>
+    
+</body>
+
+</html>
